@@ -42,43 +42,64 @@
                     </a>
                 </li>
                 {{-- <li class="app-sidebar__heading">{{__('User management')}}</li>--}}
-                @can('role-list')
-                    <li class="@if(request()->routeIs('users*') || request()->routeIs('roles*'))) mm-active @endif">
-                        <a href="#">
-                            <i class="metismenu-icon pe-7s-diamond"></i>
-                            {{__('User management')}}
-                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                        </a>
-                        <ul>
-                            <li>
-                                <a href="{{route('users.index')}}"
-                                   class="@if(request()->routeIs('users*')) mm-active @endif">
-                                    <i class="metismenu-icon">
-                                    </i>{{__('Users')}}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('roles.index')}}"
-                                   class="@if(request()->routeIs('roles*')) mm-active @endif">
-                                    <i class="metismenu-icon">
-                                    </i>{{__('Roles')}}
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                @endcan
-                <li>
-                    <a href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                        <i class="metismenu-icon pe-7s-left-arrow text-danger"></i>
-                        {{ __('Logout') }}
+                <li class="@if(request()->routeIs('users*') || request()->routeIs('roles*'))) mm-active @endif">
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-diamond"></i>
+                        {{__('User management')}}
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                     </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
+                    <ul>
+                        <li>
+                            <a href="{{route('users.index')}}"
+                               class="@if(request()->routeIs('users*')) mm-active @endif">
+                                <i class="metismenu-icon">
+                                </i>{{__('Users')}}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('roles.index')}}"
+                               class="@if(request()->routeIs('roles*')) mm-active @endif">
+                                <i class="metismenu-icon">
+                                </i>{{__('Roles')}}
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+                <li class="@if(request()->routeIs('categories*') || request()->routeIs('subcategories*'))) mm-active @endif">
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-diamond"></i>
+                        {{__('Categories')}}
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{{route('categories.index')}}"
+                               class="@if(request()->routeIs('categories*')) mm-active @endif">
+                                <i class="metismenu-icon">
+                                </i>{{__('Categories')}}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('subcategories.index')}}"
+                               class="@if(request()->routeIs('subcategories*')) mm-active @endif">
+                                <i class="metismenu-icon">
+                                </i>{{__('Subcategories')}}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                    <li>
+                        <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                            <i class="metismenu-icon pe-7s-left-arrow text-danger"></i>
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
             </ul>
         </div>
     </div>
